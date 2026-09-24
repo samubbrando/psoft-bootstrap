@@ -8,10 +8,11 @@ public class ItemVenda {
     }
 
     public double getSubtotal() {
+        double preco = this.produto.getPreco();
         if (quantidade > 10) {
-            return this.aplicaDesconto(this.produto.getPreco());
+            preco = this.aplicaDesconto(preco);
         }
-        return this.produto.getPreco();
+        return preco * quantidade;
     }
 
     private double aplicaDesconto(double valor) {
